@@ -7,9 +7,7 @@ class OrangeLoginPage {
   }
 
   visit() {
-    const oraEnv = Cypress.env('ORA') || {};
-    const url = oraEnv.url || 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
-    cy.visit(url);
+    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   }
 
   typeUsername(username) {

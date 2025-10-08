@@ -4,7 +4,7 @@
     "elements": [
       {
         "description": "",
-        "id": "frontend---login;login-con-credenciales-válidas",
+        "id": "api---login;login-con-credenciales-válidas",
         "keyword": "Scenario",
         "line": 4,
         "name": "Login con credenciales válidas",
@@ -13,72 +13,7 @@
             "arguments": [],
             "keyword": "Given ",
             "line": 5,
-            "name": "el usuario abre la web de Practicas",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 2376000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 6,
-            "name": "ingresa el usuario \"student\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 285000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 7,
-            "name": "ingresa la contraseña \"Password123\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 297000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 8,
-            "name": "el usuario hace clic en el botón ingresar",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 682000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 9,
-            "name": "el sistema muestra el titulo \"Logged In Successfully\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 18000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 10,
-            "name": "el sistema muestra el mensaje \"Congratulations student. You successfully logged in!\"",
+            "name": "el usuario tiene acceso a la API de login",
             "match": {
               "location": "not available:0"
             },
@@ -86,11 +21,37 @@
               "status": "passed",
               "duration": 14000000
             }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "el usuario envia la solicitud de login con credenciales validas",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 634000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "el sistema responde con un código de estado 200",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 17000000
+            }
           }
         ],
         "tags": [
           {
-            "name": "@Frontend",
+            "name": "@API",
             "line": 3
           },
           {
@@ -103,191 +64,13 @@
           }
         ],
         "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "frontend---login;login-con-usuario-no-valido",
-        "keyword": "Scenario",
-        "line": 14,
-        "name": "Login con usuario no valido",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 15,
-            "name": "el usuario abre la web de Practicas",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 546000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 16,
-            "name": "ingresa el usuario \"studentIncorrect\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 330000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 17,
-            "name": "ingresa la contraseña \"Password123\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 284000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 18,
-            "name": "el usuario hace clic en el botón ingresar",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 85000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 19,
-            "name": "el sistema muestra el mensaje de error \"Your username is invalid!\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 14000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Frontend",
-            "line": 13
-          },
-          {
-            "name": "@Example",
-            "line": 13
-          },
-          {
-            "name": "@TC-2",
-            "line": 13
-          }
-        ],
-        "type": "scenario"
-      },
-      {
-        "description": "",
-        "id": "frontend---login;login-con-password-no-valida",
-        "keyword": "Scenario",
-        "line": 24,
-        "name": "Login con password no valida",
-        "steps": [
-          {
-            "arguments": [],
-            "keyword": "Given ",
-            "line": 25,
-            "name": "el usuario abre la web de Practicas",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 342000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "When ",
-            "line": 26,
-            "name": "ingresa el usuario \"student\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 221000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 27,
-            "name": "ingresa la contraseña \"PasswordIncorrect\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 372000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "And ",
-            "line": 28,
-            "name": "el usuario hace clic en el botón ingresar",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 102000000
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "line": 29,
-            "name": "el sistema muestra el mensaje de error \"Your password is invalid!\"",
-            "match": {
-              "location": "not available:0"
-            },
-            "result": {
-              "status": "passed",
-              "duration": 14000000
-            }
-          }
-        ],
-        "tags": [
-          {
-            "name": "@Frontend",
-            "line": 23
-          },
-          {
-            "name": "@Example",
-            "line": 23
-          },
-          {
-            "name": "@TC-2",
-            "line": 23
-          }
-        ],
-        "type": "scenario"
       }
     ],
-    "id": "frontend---login",
+    "id": "api---login",
     "line": 1,
     "keyword": "Feature",
-    "name": "Frontend - Login",
+    "name": "API - Login",
     "tags": [],
-    "uri": "cypress\\journeys\\features\\e2e\\Login.feature"
+    "uri": "cypress\\journeys\\features\\api\\Login.feature"
   }
 ]

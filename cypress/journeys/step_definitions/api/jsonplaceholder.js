@@ -1,13 +1,19 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor';
 
-const BASE = 'https://jsonplaceholder.typicode.com';
+const DEFAULT_BASE = 'https://jsonplaceholder.typicode.com';
+
+function getBase() {
+  const apiEnv = Cypress.env('API');
+  if (apiEnv && apiEnv.url_api) return apiEnv.url_api;
+  return DEFAULT_BASE;
+}
 
 Given('la API de jsonplaceholder está disponible', () => {
   // No-op; base url está accesible en las requests siguientes
 });
 
 When('realiza una solicitud GET a {string}', (path) => {
-  cy.request({ method: 'GET', url: `${BASE}${path}` }).as('apiResponse');
+  cy.request({ method: 'GET', url: `${getBase()}${path}` }).as('apiResponse');
 });
 
 When('realiza una solicitud POST a {string} con body:', (path, dataTable) => {
@@ -19,7 +25,7 @@ When('realiza una solicitud POST a {string} con body:', (path, dataTable) => {
   });
   // Guardar el body enviado para poder validar la respuesta contra lo enviado
   cy.wrap(body).as('lastRequestBody');
-  cy.request({ method: 'POST', url: `${BASE}${path}`, body }).as('apiResponse');
+  cy.request({ method: 'POST', url: `${getBase()}${path}`, body }).as('apiResponse');
 });
 
 Then('la respuesta tiene código {int}', (status) => {

@@ -1,8 +1,10 @@
 class Login {
 
     postLogin(payload) {
-        const envi = Cypress.env("ENV");
-        const HOST = Cypress.env(`${envi}`).url_api;
+        // Determinar el entorno: preferir ENV, si no existe usar API, si no DEV
+        const envi = Cypress.env("ENV") || (Cypress.env('API') ? 'API' : 'DEV');
+        const envConfig = Cypress.env(envi) || Cypress.env('API') || Cypress.env('DEV') || {};
+        const HOST = envConfig.url_api || envConfig.url || '';
         const path = "/login";
 
         const headers = {

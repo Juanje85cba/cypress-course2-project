@@ -4,7 +4,7 @@ const loginService = new Login();
 
 // Obtenemos el entorno actual de Cypress
 // Esto nos permite usar diferentes configuraciones según el entorno (TST, STG, etc.)
-const envi = Cypress.env('ENV');
+let envi = Cypress.env('ENV') || 'DEV';
 
 let payload = {
   username: '', 
@@ -17,8 +17,14 @@ Given("el usuario tiene acceso a la API de login", function () {
 
 When("el usuario envia la solicitud de login con credenciales validas", function () {
   // Obtenemos las credenciales del usuario desde las variables de entorno
-  const username = Cypress.env(`${envi}`).username_api;
-  const password = Cypress.env(`${envi}`).password_api;
+  const envConfig = Cypress.env(envi) || Cypress.env('DEV') || {};
+  const username = envConfig.username_api;
+  const password = envConfig.password_api;
+
+  if (!username || !password) {
+    // eslint-disable-next-line no-console
+    console.warn(`Login API: credenciales faltantes para entorno '${envi}'. envConfig=`, envConfig);
+  }
 
   // Preparamos el payload con las credenciales del usuario
   payload = {
